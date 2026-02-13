@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Module 5 - Random Specials</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 30px;
+      font-size: 20px;
+      color: darkblue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Restaurant App</h1>
+
+  <!-- Specials Tile -->
+  <button onclick="loadRandomSpecial()">Click Specials</button>
+
+  <div id="output"></div>
+
+  <script>
+    // Simulated categories (like categories.json)
+    var categories = [
+      { short_name: "L", name: "Lunch" },
+      { short_name: "D", name: "Dinner" },
+      { short_name: "S", name: "Sushi" },
+      { short_name: "DS", name: "Desserts" },
+      { short_name: "DR", name: "Drinks" }
+    ];
+
+    function loadRandomSpecial() {
+
+      // STEP 1: Generate random index
+      var randomIndex = Math.floor(Math.random() * categories.length);
+
+      // STEP 2: Get random category
+      var randomCategory = categories[randomIndex];
+
+      // STEP 3: Display result
+      document.getElementById("output").innerHTML =
+        "Today's Specials Category: <b>" +
+        randomCategory.name +
+        "</b> (Short Name: " +
+        randomCategory.short_name +
+        ")";
+    }
+  </script>
+
+</body>
+</html>
