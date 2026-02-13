@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Module 4 Solution - Single File</title>
+</head>
+<body>
+  <h1>Module 4 Coding Assignment</h1>
+  <p>Open the browser console to see the output.</p>
+
+  <script>
+
+    // SpeakHello.js content
+    (function (window) {
+
+      var helloSpeaker = {};
+
+      var speakWord = "Hello";
+
+      helloSpeaker.speak = function (name) {
+        console.log(speakWord + " " + name);
+      };
+
+      window.helloSpeaker = helloSpeaker;
+
+    })(window);
+
+
+
+    // SpeakGoodBye.js content
+    (function (window) {
+
+      var byeSpeaker = {};
+
+      var speakWord = "Goodbye";
+
+      byeSpeaker.speak = function (name) {
+        console.log(speakWord + " " + name);
+      };
+
+      window.byeSpeaker = byeSpeaker;
+
+    })(window);
+
+
+
+    // script.js content
+    (function () {
+
+      var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
+
+      for (var i = 0; i < names.length; i++) {
+
+        var firstLetter = names[i].charAt(0).toLowerCase();
+
+        if (firstLetter === 'j') {
+          byeSpeaker.speak(names[i]);
+        } else {
+          helloSpeaker.speak(names[i]);
+        }
+
+      }
+
+    })();
+
+  </script>
+
+</body>
+</html>
